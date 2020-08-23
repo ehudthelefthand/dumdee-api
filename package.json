@@ -1,0 +1,17 @@
+{
+  "name": "dumdee-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.10.0"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
