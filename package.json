@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "jest"
+    "test:unit": "jest --passWithNoTests",
+    "test:int": "jest -c jest.config.integration.js -i",
+    "test": "npm run test:unit && npm run test:int"
   },
   "keywords": [],
   "author": "",

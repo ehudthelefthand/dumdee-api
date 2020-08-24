@@ -1,15 +1,22 @@
 const { connect, disconnect, clearDB } = require('./src/database')
 
-beforeEach(async () => {
+beforeAll(async () => {
     try {
         await connect()
+    } catch (err) {
+        throw err
+    }
+})
+
+beforeEach(async () => {
+    try {
         await clearDB()
     } catch (err) {
         throw err
     }
 })
 
-afterEach(async () => {
+afterAll(async () => {
     try {
         await disconnect()
     } catch (err) {

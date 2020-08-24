@@ -1,4 +1,4 @@
-const coffeeService = require('../coffee.service')
+const coffeeService = require('../../coffee.service')
 
 describe('Coffee CRUD', () => {
     describe('createCoffee', () => {
