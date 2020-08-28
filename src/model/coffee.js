@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const beerSchema = new mongoose.Schema({
+const coffeeSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -19,7 +19,14 @@ const beerSchema = new mongoose.Schema({
     },
     weight: Number,
     netWeight: Number,
-    reviews: [String]
+    awards: [{
+        name: String,
+        date: Date
+    }],
+    location: [],
+    roastLevel: String,
+    roastDate: Date,
+    reviews: []
 });
 
-module.exports = mongoose.model('coffee', beerSchema)
+module.exports = mongoose.model('coffee', coffeeSchema)
