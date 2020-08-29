@@ -1,12 +1,25 @@
 const Location = require('../../location')
 
 describe('Location Model', () => {
-    test('name must be require', async () => {
+    test('country must be require', async () => {
         expect.assertions(1)
         try {
-            await Location.create({})
+            await Location.create({
+                state: 'Chiang Rai'
+            })
         } catch (err) {
-            expect(err).toBeTruthy()
+            expect(err.errors.country).toBeTruthy()
+        }
+    })
+
+    test('state must be require', async () => {
+        expect.assertions(1)
+        try {
+            await Location.create({
+                country: 'Thailand'
+            })
+        } catch (err) {
+            expect(err.errors.state).toBeTruthy()
         }
     })
 })

@@ -1,7 +1,7 @@
 const coffeeService = require('../../coffee.service')
 
 describe('Coffee CRUD', () => {
-    describe('createCoffee', () => {
+    describe.skip('createCoffee', () => {
         test('create coffee should be success', async () => {
             try {
                 const data = {

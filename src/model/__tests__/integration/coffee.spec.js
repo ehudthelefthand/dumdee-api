@@ -1,10 +1,9 @@
-const mongoose = require('mongoose')
 const Coffee = require("../../coffee")
 
 describe('Coffee Model', () => {
 
     test('name must be required', async () => {
-        expect.assertions(1);
+        expect.assertions(1)
         try {
             await Coffee.create({
                 price: 60,
@@ -17,7 +16,7 @@ describe('Coffee Model', () => {
     })
 
     test('price must be required', async () => {
-        expect.assertions(1);
+        expect.assertions(1)
         try {
             await Coffee.create({
                 name: 'Odds Coffee',
@@ -43,7 +42,7 @@ describe('Coffee Model', () => {
     })
 
     test('brand must be required', async () => {
-        expect.assertions(1);
+        expect.assertions(1)
         try {
             await Coffee.create({
                 name: 'Odds Coffee',
@@ -55,7 +54,7 @@ describe('Coffee Model', () => {
         }
     })
 
-    test('create coffee successfully', async () => {
+    test.skip('create coffee successfully', async () => {
         try {
             const { _id, __v, ...coffee } = (await Coffee.create({
                 name: 'Odds Coffee',
