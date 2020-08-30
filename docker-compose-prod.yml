@@ -1,0 +1,29 @@
+#this file should not be in version control
+#it should be placed directly in production instance
+version: '3'
+
+services:
+  dumdee-api:
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+      - 9229:9229
+    command: npm run start:prod
+    environment:
+      - DB_URL=mongodb://localhost:27017/dumdee?authSource=dumdee
+      - DB_USER=produser
+      - DB_PWD=P@ssw0rd
+  database:
+    image: 'mongo:4.4.0-bionic'
+    environment:
+      - MONGO_INITDB_DATABASE=dumdee
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd
+    volumes:
+      - ./init-mongo-dev.js:/docker-entrypoint-initdb.d/init-mongo-dev.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
