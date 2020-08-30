@@ -10,3 +10,14 @@ services:
       - 3000:3000
       - 9229:9229
     command: npm run start:prod
+  database:
+    image: 'mongo:4.4.0-bionic'
+    environment:
+      - MONGO_INITDB_DATABASE=dumdee
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=P@ssw0rd
+    volumes:
+      - ./init-mongo-dev.js:/docker-entrypoint-initdb.d/init-mongo-dev.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'

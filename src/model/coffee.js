@@ -22,4 +22,4 @@ const beerSchema = new mongoose.Schema({
     reviews: [String]
 });
 
-module.exports = mongoose.model('beer', beerSchema)
+module.exports = mongoose.model('coffee', beerSchema)
