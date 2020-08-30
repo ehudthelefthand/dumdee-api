@@ -6,7 +6,7 @@ const ErrorCode = require('../constant/error.code')
 
 const signup = async (email, password) => {
     const user = await UserRepository.findByEmail(email)
-    if (user) throw "Email is already used"
+    if (user) throw ErrorCode.EMAIL_DUPLICATED
     return UserRepository.createUser(email, PasswordService.hash(password))
 }
 
