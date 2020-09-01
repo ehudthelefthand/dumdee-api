@@ -5,7 +5,7 @@ const cors = require('cors');
 const logger = require('./logger/logger').logger;
 const expressLogger = expressPino({ logger });
 
-const user = require('./rotues/user.routes');
+const user = require('./routes/user.routes');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
