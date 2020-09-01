@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 
 app.use(user());
 
-const database = require('./database')
+require('./database')
     .connect()
     .then(() => {
         logger.info("Successfully connect to database.");
