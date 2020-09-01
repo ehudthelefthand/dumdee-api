@@ -1,3 +1,4 @@
+require('dotenv').config({ path: './.test.env' })
 const { connect, disconnect, clearDB } = require('./src/database')
 
 beforeAll(async () => {
