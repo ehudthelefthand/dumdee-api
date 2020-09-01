@@ -11,7 +11,7 @@ describe('Coffee Model', () => {
                 brand: 'Odds',
             })
         } catch (err) {
-            expect(err).toBeTruthy()
+            expect(err.errors.name).toBeTruthy()
         }
     })
 
@@ -24,7 +24,7 @@ describe('Coffee Model', () => {
                 priceUnit: 'THB',
             })
         } catch (err) {
-            expect(err).toBeTruthy()
+            expect(err.errors.price).toBeTruthy()
         }
     })
 
@@ -50,7 +50,7 @@ describe('Coffee Model', () => {
                 priceUnit: 'THB',
             })
         } catch (err) {
-            expect(err).toBeTruthy()
+            expect(err.errors.brand).toBeTruthy()
         }
     })
 
