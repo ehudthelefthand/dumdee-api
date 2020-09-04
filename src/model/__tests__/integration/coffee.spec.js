@@ -1,4 +1,5 @@
 const Coffee = require("../../coffee")
+const species = require("../../master/species")
 
 describe('Coffee Model', () => {
 
@@ -15,6 +16,19 @@ describe('Coffee Model', () => {
         }
     })
 
+    test('brand must be required', async () => {
+        expect.assertions(1)
+        try {
+            await Coffee.create({
+                name: 'Odds Coffee',
+                price: 120,
+                priceUnit: 'THB',
+            })
+        } catch (err) {
+            expect(err.errors.brand).toBeTruthy()
+        }
+    })
+
     test('price must be required', async () => {
         expect.assertions(1)
         try {
@@ -28,7 +42,7 @@ describe('Coffee Model', () => {
         }
     })
 
-    test('priceUnit should be default to THB', async () => {
+    test('priceUnit must default to THB', async () => {
         try {
             const coffee = await Coffee.create({
                 name: 'Odds Coffee',
@@ -41,13 +55,27 @@ describe('Coffee Model', () => {
         }
     })
 
-    test('brand must be required', async () => {
+    // test('weight must be required', async () => {
+    //     try {
+    //         const coffee = await Coffee.create({
+    //             name: 'Odds Coffee',
+    //             brand: 'Odds',
+    //             price: 120,
+    //         })
+    //         expect(coffee.priceUnit).toBe('THB')
+    //     } catch (err) {
+    //         throw err
+    //     }
+    // })
+
+    test('roastLevel must be required', async () => {
         expect.assertions(1)
         try {
             await Coffee.create({
                 name: 'Odds Coffee',
                 price: 120,
                 priceUnit: 'THB',
+
             })
         } catch (err) {
             expect(err.errors.brand).toBeTruthy()
@@ -74,4 +102,18 @@ describe('Coffee Model', () => {
             throw err
         }
     })
+
+    const getValidCoffee = () => {
+        return {
+            name: 'Odds Coffee',
+            brand: brand._id,
+            price: 120,
+            weight: 310,
+            netWeight: 300,
+            species: species._id,
+            roastLevel: roastLevel._id,
+            rosatDate: new Date(),
+            bestPeriod: '2M',
+        }
+    }
 })
