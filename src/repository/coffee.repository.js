@@ -1,4 +1,4 @@
-const Coffee = require('./coffee')
+const Coffee = require('../model/coffee')
 
 const createCoffee = async (data) => {
     try {

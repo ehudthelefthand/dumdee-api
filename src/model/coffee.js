@@ -5,6 +5,10 @@ const coffeeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    brand: {
+        type: String,
+        required: true
+    },
     price: {
         type: Number,
         required: true
@@ -13,24 +17,60 @@ const coffeeSchema = new mongoose.Schema({
         type: String,
         default: 'THB',
     },
-    brand: {
-        type: String,
+    weight: {
+        type: Number,
         required: true
     },
-    weight: Number,
-    netWeight: Number,
-    awards: [{
-        name: String,
-        date: Date
-    }],
-    location: [],
-    roastLevel: String,
-    roastDate: Date,
-    reviews: [],
-    votes: [{
+    netWeight: {
+        type: Number,
+        required: true
+    },
+    weightUnit: {
+        type: String,
+        default: 'GM',
+    },
+    species: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-    }]
+        ref: 'species',
+        required: true,
+    },
+    roastLevel: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'roastLevel',
+        required: true,
+    },
+    roastDate: {
+        type: Date,
+        required: true,
+    },
+    bestPeriod: {
+        type: String,
+        required: true,
+    },
+    location: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'location'
+    },
+    process: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'process'
+    },
+    makes: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'make'
+        }],
+    },
+    menus: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'menu'
+        }],
+    },
+    smell: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'smell'
+    }
 });
 
 module.exports = mongoose.model('coffee', coffeeSchema)

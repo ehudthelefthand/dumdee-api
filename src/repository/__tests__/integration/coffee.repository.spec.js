@@ -1,7 +1,7 @@
-const coffeeService = require('../../../model/coffee.service')
+const coffeeRepository = require('../../../repository/coffee.repository')
 
-describe('Coffee CRUD', () => {
-    describe.skip('createCoffee', () => {
+describe.skip('Coffee CRUD', () => {
+    describe('createCoffee', () => {
         test('create coffee should be success', async () => {
             try {
                 const data = {
@@ -11,7 +11,7 @@ describe('Coffee CRUD', () => {
                     priceUnit: 'THB',
                     reviews: [],
                 }
-                const {_id, __v, ...coffee} = (await coffeeService.createCoffee(data)).toObject()
+                const { _id, __v, ...coffee } = (await coffeeRepository.createCoffee(data)).toObject()
                 expect(coffee).toEqual(data)
             } catch (err) {
                 throw err
