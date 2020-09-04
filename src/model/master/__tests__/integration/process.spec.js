@@ -1,10 +1,10 @@
-const Country = require('../../country')
+const Process = require('../../process')
 
-describe('Country Model', () => {
+describe('Process Model', () => {
     test('name must be require', async () => {
         expect.assertions(1)
         try {
-            await Country.create({})
+            await Process.create({})
         } catch (err) {
             expect(err.errors.name).toBeTruthy()
         }

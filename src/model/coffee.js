@@ -26,7 +26,11 @@ const coffeeSchema = new mongoose.Schema({
     location: [],
     roastLevel: String,
     roastDate: Date,
-    reviews: []
+    reviews: [],
+    votes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    }]
 });
 
 module.exports = mongoose.model('coffee', coffeeSchema)

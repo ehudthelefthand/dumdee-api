@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const countrySchema = new mongoose.Schema({
+const processSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     }
 })
 
-module.exports = mongoose.model('country', countrySchema)
+module.exports = mongoose.model('process', processSchema)
