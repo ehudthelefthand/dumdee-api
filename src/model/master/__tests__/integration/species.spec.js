@@ -1,19 +1,19 @@
-const Process = require('../../process')
+const Species = require('../../species')
 
-describe('Process Model', () => {
+describe('Species Model', () => {
     test('name must be require', async () => {
         expect.assertions(1)
         try {
-            await Process.create({})
+            await Species.create({})
         } catch (err) {
             expect(err.errors.name).toBeTruthy()
         }
     })
 
-    test('create process successfully', async () => {
+    test('create species successfully', async () => {
         try {
-            await Process.create({
-                name: 'Honey',
+            await Species.create({
+                name: 'Arabica'
             })
         } catch (err) {
             throw err

@@ -9,4 +9,14 @@ describe('Award Model', () => {
             expect(err).toBeTruthy()
         }
     })
+
+    test('create award successfully', async () => {
+        try {
+            await Award.create({
+                name: 'Award Test',
+            })
+        } catch (err) {
+            throw err
+        }
+    })
 })

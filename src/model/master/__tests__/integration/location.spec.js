@@ -5,7 +5,7 @@ describe('Location Model', () => {
         expect.assertions(1)
         try {
             await Location.create({
-                state: 'Chiang Rai'
+                province: 'Chiang Rai'
             })
         } catch (err) {
             expect(err.errors.country).toBeTruthy()
@@ -19,14 +19,14 @@ describe('Location Model', () => {
                 country: 'Thailand',
             })
         } catch (err) {
-            expect(err.errors.state).toBeTruthy()
+            expect(err.errors.province).toBeTruthy()
         }
     })
 
     test('create location successfully', async() => {
         try {
             await Location.create({
-                state: 'Chiang Rai',
+                province: 'Chiang Rai',
                 country: 'Thailand',
             })
         } catch (err) {
