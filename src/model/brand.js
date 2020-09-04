@@ -7,6 +7,12 @@ const brandSchema = new mongoose.Schema({
     },
     shopAddress: String,
     factoryAddress: String,
+    awards: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'award'
+        }]
+    }
 })
 
 module.exports = mongoose.model('brand', brandSchema);
