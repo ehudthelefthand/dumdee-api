@@ -4,7 +4,20 @@ describe('Award Model', () => {
     test('name must be require', async () => {
         expect.assertions(1)
         try {
-            await Award.create({})
+            await Award.create({
+                date: new Date()
+            })
+        } catch (err) {
+            expect(err).toBeTruthy()
+        }
+    })
+
+    test('date must be require', async () => {
+        expect.assertions(1)
+        try {
+            await Award.create({
+                name: 'Test'
+            })
         } catch (err) {
             expect(err).toBeTruthy()
         }
@@ -14,6 +27,7 @@ describe('Award Model', () => {
         try {
             await Award.create({
                 name: 'Award Test',
+                date: new Date(),
             })
         } catch (err) {
             throw err
