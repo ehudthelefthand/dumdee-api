@@ -18,8 +18,8 @@ describe('UserController', () => {
                 .post('/auth/signup')
                 .send({email: 'email@email.com', password: 'pass'})
                 .set('Accept', 'application/json')
-                .expect(422)
                 .end(function(err, res) {
+                    expect(res.status).toEqual(422);
                     expect(res.body).toEqual({
                         message: ErrorCode.EMAIL_DUPLICATED.message
                     });
@@ -33,8 +33,8 @@ describe('UserController', () => {
                 .post('/auth/signup')
                 .send({email: 'email@email.com', password: 'pass'})
                 .set('Accept', 'application/json')
-                .expect(500)
                 .end(function(err, res) {
+                    expect(res.status).toEqual(500);
                     expect(res.body).toEqual({
                         message: 'err'
                     });
@@ -47,8 +47,8 @@ describe('UserController', () => {
                 .post('/auth/signup')
                 .send({email: 'email@email.com', password: 'pass'})
                 .set('Accept', 'application/json')
-                .expect(200)
                 .end(function(err, res) {
+                    expect(res.status).toEqual(200);
                     expect(UserService.signup).toHaveBeenCalledWith('email@email.com', 'pass')
                     done();
                 });
@@ -62,8 +62,8 @@ describe('UserController', () => {
                 .post('/auth/login')
                 .send({email: 'email@email.com', password: 'pass'})
                 .set('Accept', 'application/json')
-                .expect(401)
                 .end(function(err, res) {
+                    expect(res.status).toEqual(401);
                     done();
                 });
         });
@@ -74,8 +74,8 @@ describe('UserController', () => {
                 .post('/auth/login')
                 .send({email: 'email@email.com', password: 'pass'})
                 .set('Accept', 'application/json')
-                .expect(500)
                 .end(function(err, res) {
+                    expect(res.status).toEqual(500);
                     expect(res.body).toEqual({
                         message: 'err'
                     });
@@ -89,8 +89,8 @@ describe('UserController', () => {
                 .post('/auth/login')
                 .send({email: 'email@email.com', password: 'pass'})
                 .set('Accept', 'application/json')
-                .expect(200)
                 .end(function(err, res) {
+                    expect(res.status).toEqual(200);
                     expect(res.body).toEqual({ email: 'email@email.com' });
                     expect(UserService.login).toHaveBeenCalledWith('email@email.com', 'pass');
                     done();
