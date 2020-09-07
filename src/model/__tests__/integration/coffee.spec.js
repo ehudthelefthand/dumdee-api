@@ -135,6 +135,17 @@ describe('Coffee Model', () => {
         }
     })
 
+    test('beanSampleImage must be required', async () => {
+        expect.assertions(1)
+        try {
+            const data = getValidCoffee()
+            delete data.beanSampleImage
+            await Coffee.create(data)
+        } catch (err) {
+            expect(err.errors.beanSampleImage).toBeTruthy()
+        }
+    })
+
     test('create coffee successfully', async () => {
         try {
             await Coffee.create(getValidCoffee())
@@ -160,6 +171,7 @@ describe('Coffee Model', () => {
     const getValidCoffee = () => {
         return {
             name: 'Odds Coffee',
+            beanSampleImage: 'sample.png',
             brand: brand._id,
             price: 120,
             weight: 310,
