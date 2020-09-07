@@ -1,5 +1,6 @@
 const Brand = require('../../brand')
 const Award = require('../../master/award')
+const { clearDB } = require('../../../database')
 
 describe('Brand Model', () => {
     test('name must be required', async () => {
@@ -23,6 +24,7 @@ describe('Brand Model', () => {
 
     test('create brand with awards', async () => {
         try {
+            await clearDB()
             const award1 = await Award.create({ name: 'Award1', date: new Date() })
             const award2 = await Award.create({ name: 'Award2', date: new Date() })
             const data = {

@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const connect = () => {
     let config = {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useFindAndModify: false,
     }
 
     if (process.env.DB_USER) {

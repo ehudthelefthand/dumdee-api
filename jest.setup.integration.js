@@ -1,17 +1,9 @@
-require('dotenv').config({ path: './.test.env' })
-const { connect, disconnect, clearDB } = require('./src/database')
+require('dotenv').config({ path: './.test.integration.env' })
+const { connect, disconnect } = require('./src/database')
 
 beforeAll(async () => {
     try {
         await connect()
-    } catch (err) {
-        throw err
-    }
-})
-
-beforeEach(async () => {
-    try {
-        await clearDB()
     } catch (err) {
         throw err
     }

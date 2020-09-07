@@ -7,8 +7,8 @@
     "start:prod": "node src/server.js",
     "debug": "nodemon --inspect=0.0.0.0 src/server.js",
     "test:unit": "jest --passWithNoTests",
-    "test:int": "jest -c jest.config.integration.js -i",
-    "test": "npm run test:unit && npm run test:int"
+    "test:integration": "jest -c jest.config.integration.js -i",
+    "test": "npm run test:unit && npm run test:integration"
   },
   "keywords": [],
   "author": "",
