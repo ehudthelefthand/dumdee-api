@@ -9,7 +9,7 @@ const Make = require('../../../model/master/make')
 const Coffee = require('../../../model/coffee')
 const { clearDB } = require('../../../database')
 
-describe('Coffee CRUD', () => {
+describe('Coffee Repository', () => {
 
     describe('createCoffee', () => {
         test('should be success', async () => {
