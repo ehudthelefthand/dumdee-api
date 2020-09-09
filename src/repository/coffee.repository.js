@@ -1,5 +1,4 @@
 const Coffee = require('../model/coffee')
-const P = require('pino')
 
 const createCoffee = async (data) => {
     try {
