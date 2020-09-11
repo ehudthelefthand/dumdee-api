@@ -8,7 +8,7 @@ const createUser = (email, hashedPassword) => {
     return user.save()
 }
 
-const findByEmail = (email) => {
+const getByEmail = (email) => {
     return User.findOne({
         email: email
     })
@@ -17,5 +17,5 @@ const findByEmail = (email) => {
 
 module.exports = {
     createUser,
-    findByEmail
+    getByEmail
 }

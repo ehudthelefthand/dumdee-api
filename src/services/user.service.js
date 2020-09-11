@@ -4,13 +4,13 @@ const ErrorCode = require('../constant/error.code')
 
 
 const signup = async (email, password) => {
-    const user = await UserRepository.findByEmail(email)
+    const user = await UserRepository.getByEmail(email)
     if (user) throw ErrorCode.EMAIL_DUPLICATED
     return UserRepository.createUser(email, PasswordService.hash(password))
 }
 
 const login = async (email, password) => {
-    const user = await UserRepository.findByEmail(email)
+    const user = await UserRepository.getByEmail(email)
     if (!user) throw ErrorCode.UNAUTHORIZED
 
     const isValid = PasswordService.compare(password, user.password)

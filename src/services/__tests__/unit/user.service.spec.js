@@ -8,15 +8,15 @@ const ErrorCode = require('../../../constant/error.code');
 describe('UserService', () => {
     describe('signup', () => {
         beforeEach(() => {
-            UserRepository.findByEmail.mockResolvedValue(null);
+            UserRepository.getByEmail.mockResolvedValue(null);
         });
         test('should throw duplicate email when found user', async () => {
-            UserRepository.findByEmail.mockResolvedValue({ email: 'email@email.com'});
+            UserRepository.getByEmail.mockResolvedValue({ email: 'email@email.com'});
             try {
                 await UserService.signup('email@email.com', 'pass');
                 fail()
             } catch (err) {
-                expect(UserRepository.findByEmail).toHaveBeenCalledWith('email@email.com')
+                expect(UserRepository.getByEmail).toHaveBeenCalledWith('email@email.com')
                 expect(err).toEqual(ErrorCode.EMAIL_DUPLICATED)
             }
         });
@@ -34,7 +34,7 @@ describe('UserService', () => {
 
     describe('login', () => {
         beforeEach(() => {
-            UserRepository.findByEmail.mockResolvedValue({
+            UserRepository.getByEmail.mockResolvedValue({
                 _id: 'mockedId',
                 password: 'mocked password',
                 email: 'email@email.com'
@@ -44,12 +44,12 @@ describe('UserService', () => {
         });
 
         test('should return Unauthorized when user is not found', async () => {
-            UserRepository.findByEmail.mockResolvedValue(null);
+            UserRepository.getByEmail.mockResolvedValue(null);
             try {
                 await UserService.login('email@email.com', 'pass');
                 fail()
             } catch (err) {
-                expect(UserRepository.findByEmail).toHaveBeenCalledWith('email@email.com');
+                expect(UserRepository.getByEmail).toHaveBeenCalledWith('email@email.com');
                 expect(err).toEqual(ErrorCode.UNAUTHORIZED);
             }
         });
