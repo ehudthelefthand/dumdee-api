@@ -10,7 +10,8 @@ const coffeeSchema = new mongoose.Schema({
         required: true,
     },
     brand: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'brand',
         required: true
     },
     price: {
@@ -74,7 +75,8 @@ const coffeeSchema = new mongoose.Schema({
     smell: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'smell'
-    }
+    },
+    vote: Number
 });
 
 module.exports = mongoose.model('coffee', coffeeSchema)

@@ -183,3 +183,5 @@ describe('Coffee Model', () => {
         }
     }
 })
+
+

@@ -25,7 +25,7 @@ const requireUser = (req, res, next) => {
 const requireAdmin = (req, res, next) => {
     // This is just an illustrate
     // Don't use in real production
-    if (req.user.email === 'admin@email.com') {
+    if (req.user && req.user.email === 'admin@email.com') {
         return next()
     }
     return res.sendStatus(401)

@@ -1,5 +1,6 @@
 const express = require('express')
 const coffeeService = require('../services/coffee.service')
+const AuthJwt = require('../middlewares/auth.jwt')
 
 module.exports = () => {
 
@@ -11,7 +12,17 @@ module.exports = () => {
             const coffees = await service.getCoffee()
             res.json(coffees)
         } catch (err) {
-            throw err
+            res.status(500).send({ message: err.message })
+        }
+    })
+
+    router.post('/coffees', AuthJwt.requireAdmin, async (req, res) => {
+        try {
+            const service = coffeeService(req.user)
+            const coffees = await service.createCoffee(req.body)
+            res.json(coffees)
+        } catch (err) {
+            res.status(500).send({ message: err.message })
         }
     })
 

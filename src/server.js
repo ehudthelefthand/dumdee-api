@@ -1,9 +1,14 @@
 
 const PORT = process.env.PORT || 3000;
+const logger = require('./logger/logger').logger;
 const app = require('./express');
 const user = require('./routes/user.routes');
+const coffee = require('./routes/coffee.routes')
+const vote = require('./routes/coffee.routes')
 
 app.use(user());
+app.use(coffee())
+app.use(vote())
 
 require('./database')
     .connect()
