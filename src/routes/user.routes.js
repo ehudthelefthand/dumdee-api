@@ -1,5 +1,4 @@
 const { Router } = require('express')
-const path = require('path')
 const user = require('../controllers/user.controller')
 
 module.exports = () => {
