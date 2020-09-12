@@ -13,14 +13,16 @@ const User = require('./src/model/user')
 
 const { connect, disconnect, clearDB } = require('./src/database')
 
+const passwordService = require('./src/services/password.service')
+
 connect()
     .then(async () => {
 
         try {
             await clearDB()
 
-            await User.create({ email: "user1@email.com", password: "password" })
-            await User.create({ email: "admin@email.com", password: "password" })
+            await User.create({ email: "user1@email.com", password: passwordService.hash("password") })
+            await User.create({ email: "admin@email.com", password: passwordService.hash("password") })
 
             const l1 = await Location.create({ province: "Chiang Mail", country: "Thailand" })
             const l2 = await Location.create({ province: "Chiang Rai", country: "Thailand" })
