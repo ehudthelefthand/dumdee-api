@@ -8,10 +8,15 @@ module.exports = () => {
 
     router.post('/votes', AuthJwt.requireUser, async (req, res) => {
         try {
-            await voteService.createVote(req.user, req.body.coffeeId)
+            await voteService.createVote({
+                score: req.body.score,
+                email: req.user.email,
+                coffeeId: req.body.coffeeId
+            })
             res.sendStatus(201)
         } catch (err) {
-            throw err
+            console.error(err)
+            res.status(500).send({ message: err.message })
         }
     })
 

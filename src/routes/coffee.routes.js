@@ -16,15 +16,5 @@ module.exports = () => {
         }
     })
 
-    // router.post('/coffees', AuthJwt.requireAdmin, async (req, res) => {
-    //     try {
-    //         const service = coffeeService(req.user)
-    //         const coffees = await service.createCoffee(req.body)
-    //         res.json(coffees)
-    //     } catch (err) {
-    //         res.status(500).send({ message: err.message })
-    //     }
-    // })
-
     return router
 }

@@ -4,7 +4,7 @@ const logger = require('./logger/logger').logger;
 const app = require('./express');
 const user = require('./routes/user.routes');
 const coffee = require('./routes/coffee.routes')
-const vote = require('./routes/coffee.routes')
+const vote = require('./routes/vote.routes')
 
 app.use(user());
 app.use(coffee())

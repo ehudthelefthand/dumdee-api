@@ -11,7 +11,7 @@ const createVote = async ({ score, coffeeId, email }) => {
         await voteRepo.createVote({ score, coffeeId: coffee._id, userId: user._id })
         const votes = await voteRepo.getByCoffeeId(coffee._id)
         const newVote = votes.reduce((acc, v) => acc + v.score, 0) / votes.length
-        const newCoffee = { ...coffee, vote: newVote }
+        const newCoffee = { ...coffee.toObject(), vote: newVote }
         await coffeeRepo.updateCoffee(newCoffee)
     } catch (err) {
         throw err
