@@ -6,6 +6,7 @@ const app = require('../../express')
 const vote = require('../vote.routes')
 const jwt = require('jsonwebtoken')
 const voteService = require('../../services/vote.service')
+const coffeeService = require("../../services/coffee.service")
 
 describe('Vote API', () => {
 
@@ -29,6 +30,7 @@ describe('Vote API', () => {
         test('with authentication', (done) => {
             jwt.verify.mockReturnValue({ email: 'user@email.com' });
             voteService.createVote.mockResolvedValue();
+
             request(app)
                 .post('/votes')
                 .send({ coffeeId: 'coffeeId' })

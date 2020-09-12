@@ -7,5 +7,6 @@ class ErrorCode {
 module.exports = {
     UNAUTHORIZED: new ErrorCode('ER_001', 'Unauthorized'),
     EMAIL_DUPLICATED: new ErrorCode('ER_002', 'Email is already used'),
-    TypeErrorCode: ErrorCode
+    COFFEE_NOT_FOUND: new ErrorCode('ER_003', 'Coffee is not found'),
+    TypeErrorCode: ErrorCode,
 }

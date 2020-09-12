@@ -1,6 +1,6 @@
 const Vote = require('../model/vote')
 
-const createVote = async (score, userId, coffeeId) => {
+    const createVote = async ({ score, userId, coffeeId }) => {
     try {
         return await Vote.create({ score, userId, coffeeId })
     } catch (err) {
@@ -16,7 +16,12 @@ const deleteVote = async (voteId) => {
     }
 }
 
+const getByCoffeeId = async () => {
+
+}
+
 module.exports = {
     createVote,
     deleteVote,
+    getByCoffeeId,
 }

@@ -24,7 +24,7 @@ describe('Vote CRUD', () => {
     describe('createVote', () => {
         test('should success', async () => {
             try {
-                await voteRepo.createVote(5, user._id, coffee._id)
+                await voteRepo.createVote({ score: 5, userId: user._id, coffeeId: coffee._id })
             } catch (err) {
                 throw err
             }
@@ -34,7 +34,7 @@ describe('Vote CRUD', () => {
     describe('deleteVote', () => {
         test('should success', async () => {
             try {
-                const vote = await voteRepo.createVote(5, user._id, coffee._id)
+                const vote = await voteRepo.createVote({ score: 5, userId: user._id, coffeeId: coffee._id })
                 let found = await Vote.findById(vote._id).exec()
                 expect(found).toBeTruthy()
                 await voteRepo.deleteVote(vote._id)
