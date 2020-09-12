@@ -77,6 +77,7 @@ connect()
                 process: p1._id,
                 makes: [ m1._id, m2._id ],
                 menus: [ me1._id, me2._id ],
+                vote: 0
             })
 
             await Coffee.create({
@@ -96,6 +97,7 @@ connect()
                 process: p2._id,
                 makes: [m1._id],
                 menus: [me3._id],
+                vote: 0
             })
 
             await disconnect()
