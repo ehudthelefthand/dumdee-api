@@ -8,17 +8,17 @@ const createCoffee = async (data) => {
     }
 }
 
-const updateCoffee = async (data) => {
+const updateCoffee = async (data, optSession) => {
     try {
-        return await Coffee.findByIdAndUpdate(data._id, { ...data }, { new: true })
+        return await Coffee.findByIdAndUpdate(data._id, { ...data }, { new: true, session: optSession }).exec()
     } catch (err) {
         throw err
     }
 }
 
-const getCoffeeById = async (id) => {
+const getCoffeeById = async (id, optSession) => {
     try {
-        return await Coffee.findById(id).exec()
+        return await Coffee.findById(id).session(optSession).exec()
     } catch (err) {
         throw err
     }

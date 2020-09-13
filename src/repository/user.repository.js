@@ -8,10 +8,10 @@ const createUser = (email, hashedPassword) => {
     return user.save()
 }
 
-const getByEmail = (email) => {
+const getByEmail = (email, optSession) => {
     return User.findOne({
         email: email
-    })
+    }, { session: optSession })
 }
 
 
