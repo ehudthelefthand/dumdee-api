@@ -21,11 +21,11 @@ describe('Vote Service', () => {
 
             await voteService.createVote({ score: 5, coffeeId: 'coffeeId', email: 'user@email.com' })
 
-            expect(userRepo.getByEmail).toHaveBeenCalledWith('user@email.com')
-            expect(coffeeRepo.getCoffeeById).toHaveBeenCalledWith('coffeeId')
-            expect(voteRepo.createVote).toHaveBeenCalledWith({ score: 5, coffeeId: 'coffeeId', userId: 'userId' })
-            expect(voteRepo.getByCoffeeId).toHaveBeenCalledWith('coffeeId')
-            expect(coffeeRepo.updateCoffee).toHaveBeenCalledWith({ _id: 'coffeeId', vote: 4.5 })
+            expect(userRepo.getByEmail).toHaveBeenCalledWith('user@email.com', 'session')
+            expect(coffeeRepo.getCoffeeById).toHaveBeenCalledWith('coffeeId', 'session')
+            expect(voteRepo.createVote).toHaveBeenCalledWith({ score: 5, coffeeId: 'coffeeId', userId: 'userId' }, 'session')
+            expect(voteRepo.getByCoffeeId).toHaveBeenCalledWith('coffeeId', 'session')
+            expect(coffeeRepo.updateCoffee).toHaveBeenCalledWith({ _id: 'coffeeId', vote: 4.5 }, 'session')
         })
 
         test('should reject when coffee is not found', async () => {
