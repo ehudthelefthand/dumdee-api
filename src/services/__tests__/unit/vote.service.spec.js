@@ -13,7 +13,8 @@ describe('Vote Service', () => {
 
         test('should create vote and update coffee vote', async () => {
             userRepo.getByEmail.mockResolvedValue({ _id: 'userId' })
-            coffeeRepo.getCoffeeById.mockResolvedValue({ _id: 'coffeeId' })
+            const mockCoffeeData = { _id: 'coffeeId' }
+            coffeeRepo.getCoffeeById.mockResolvedValue({ ...mockCoffeeData, toObject: () => ({ ...mockCoffeeData })})
             voteRepo.createVote.mockResolvedValue()
             voteRepo.getByCoffeeId.mockResolvedValue([{ score: 4 }, { score: 5 }])
             coffeeRepo.updateCoffee.mockResolvedValue()
