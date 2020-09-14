@@ -5,6 +5,7 @@ version: '3'
 services:
   dumdee-api:
     build: .
+#    image: ''
     volumes:
       - .:/app
       - /app/node_modules
