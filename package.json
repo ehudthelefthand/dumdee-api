@@ -4,7 +4,6 @@
   "description": "",
   "scripts": {
     "start": "nodemon -r dotenv/config src/server.js",
-    "start:prod": "node src/server.js",
     "debug": "nodemon --inspect=0.0.0.0 src/server.js",
     "test:unit": "jest --passWithNoTests",
     "test:integration": "jest -c jest.config.integration.js -i",

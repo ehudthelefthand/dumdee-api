@@ -1,0 +1,11 @@
+Handling Request
+Create Response
+Middleware
+Connect to Database
+Control Schema and Enhance Data Layer with Mongoose
+Authentication
+Logging (pino, express-pino-logger)
+Debugging
+Testing
+Dockerize
+Deploy
