@@ -20,7 +20,10 @@
     "test:repos": "npm run test:repos:unit && npm run test:repos:integration",
     "test:model:unit": "jest --passWithNoTests ./src/model",
     "test:model:integration": "jest -c jest.config.integration.js -i ./src/model",
-    "test:model": "npm run test:model:unit && npm run test:model:integration"
+    "test:model": "npm run test:model:unit && npm run test:model:integration",
+    "test:mw:unit": "jest --passWithNoTests ./src/middlewares",
+    "test:mw:integration": "jest -c jest.config.integration.js -i ./src/middlewares",
+    "test:mw": "npm run test:mw:unit && npm run test:mw:integration"
   },
   "keywords": [],
   "author": "",
