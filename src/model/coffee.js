@@ -3,20 +3,16 @@ const mongoose = require('mongoose')
 const coffeeSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
     },
     beanSampleImage: {
         type: String,
-        required: true,
     },
     brand: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'brand',
-        required: true
     },
     price: {
         type: Number,
-        required: true
     },
     priceUnit: {
         type: String,
@@ -24,11 +20,9 @@ const coffeeSchema = new mongoose.Schema({
     },
     weight: {
         type: Number,
-        required: true
     },
     netWeight: {
         type: Number,
-        required: true
     },
     weightUnit: {
         type: String,
@@ -37,20 +31,16 @@ const coffeeSchema = new mongoose.Schema({
     species: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'species',
-        required: true,
     },
     roastLevel: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'roastLevel',
-        required: true,
     },
     roastDate: {
         type: Date,
-        required: true,
     },
     bestPeriod: {
         type: String,
-        required: true,
     },
     location: {
         type: mongoose.Schema.Types.ObjectId,

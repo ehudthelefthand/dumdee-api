@@ -1,34 +1,13 @@
-const mongoose = require('mongoose')
-
 const connect = () => {
-    let config = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-    }
-
-    if (process.env.DB_USER) {
-        config = {
-            ...config,
-            user: process.env.DB_USER,
-            pass: process.env.DB_PWD,
-        }
-    }
-    return mongoose.connect(process.env.DB_URL, config)
+    return Promise.resolve()
 }
 
 const disconnect = () => {
-    return mongoose.disconnect()
+    return Promise.resolve()
 }
 
 const clearDB = async () => {
-    try {
-        for (let i in mongoose.connection.collections) {
-            await mongoose.connection.collections[i].deleteMany()
-        }
-    } catch (err) {
-        throw err
-    }
+    return Promise.resolve()
 }
 
 module.exports = {
